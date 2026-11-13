@@ -1,17 +1,22 @@
 import { WhatsappBtn } from "../components/Btns";
 import ChatIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
 import { useWhatsAppSettings } from "../components/useWhatsAppSettings";
+import Seo from "../components/Seo";
 
 const HowToOrder = () => {
   const { whatsappLink } = useWhatsAppSettings();
 
   return (
     <>
+      <Seo
+        title="طريقة الطلب | Terra Fert"
+        description="تعرف على خطوات اختيار المنتجات وإرسال طلبك إلى تيرا فيرت عبر واتساب."
+      />
       <section className="py-20">
         <div className="container text-soil">
-          <h2 className="pb-8 mb-5 display text-center lg:text-center">
+          <h1 className="pb-8 mb-5 display text-center lg:text-center">
             كيف تطلب؟
-          </h2>
+          </h1>
           <h3 className="pb-3 text-center lg:text-start">الطريقة الأولى</h3>
           <span className="block text-center lg:text-start">
             يفضل عند طلب منتج واحد مباشرة

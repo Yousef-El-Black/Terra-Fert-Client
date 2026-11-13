@@ -1,8 +1,13 @@
 import { PrimaryBtn } from "../components/Btns";
+import Seo from "../components/Seo";
 
 const NotFound = () => {
   return (
     <section>
+      <Seo
+        title="الصفحة غير موجودة | Terra Fert"
+        description="الصفحة المطلوبة غير موجودة. يمكنك العودة إلى الصفحة الرئيسية أو تصفح المنتجات."
+      />
       <div className="container min-h-[calc(100vh-240px)] text-soil flex flex-col gap-10 items-center justify-center text-center">
         <span className="font-extrabold text-8xl">404</span>
         <h1 className="display">الصفحة غير موجودة</h1>

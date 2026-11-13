@@ -6,6 +6,7 @@ import ChatIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
 import { useWhatsAppSettings } from "../components/useWhatsAppSettings";
 import axios from "axios";
 import { useEffect, useMemo, useState } from "react";
+import Seo from "../components/Seo";
 
 type CartProduct = { id: string | number; quantity: number };
 type CartState = { cart: { value?: CartProduct[] } };
@@ -76,9 +77,13 @@ const Cart = () => {
 
   return (
     <section className="cart pb-10 bg-cream min-h-[calc(100vh-80px)]">
+      <Seo
+        title="سلة الطلب | Terra Fert"
+        description="راجع المنتجات التي اخترتها وأرسل تفاصيل طلبك إلى تيرا فيرت عبر واتساب."
+      />
       <div className="container">
         <div className="head py-8 text-soil">
-          <h2 className="py-5 display text-center lg:text-start">سلة الطلب</h2>
+          <h1 className="py-5 display text-center lg:text-start">سلة الطلب</h1>
           <span className="text-muted label-lg text-center lg:text-start block">
             راجع منتجاتك ثم أرسل الطلب كاملًا في رسالة واتساب واحدة. السعر
             النهائي يُؤكَّد معك في المحادثة.

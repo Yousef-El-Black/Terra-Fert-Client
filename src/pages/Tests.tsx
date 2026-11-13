@@ -5,6 +5,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import ScienceOutlinedIcon from "@mui/icons-material/ScienceOutlined";
 import GrassOutlinedIcon from "@mui/icons-material/GrassOutlined";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import Seo from "../components/Seo";
 
 type FieldTest = {
   _id: string;
@@ -72,6 +73,17 @@ const Tests = () => {
 
   return (
     <main className="min-h-screen bg-cream">
+      <Seo
+        title="التجارب الحقلية | Terra Fert"
+        description="اكتشف التجارب الحقلية ونتائج تطبيق المنتجات الزراعية في الميدان."
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "التجارب الحقلية | Terra Fert",
+          url: "https://terrafert.com/tests",
+          isPartOf: { "@id": "https://terrafert.com/#website" },
+        }}
+      />
       <section className="relative overflow-hidden bg-soil-deep text-field">
         <div className="pointer-events-none absolute -left-20 -top-28 h-80 w-80 rounded-full bg-leaf opacity-10 blur-3xl" />
         <div className="container relative py-14 sm:py-20">

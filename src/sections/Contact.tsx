@@ -62,6 +62,9 @@ const Contact = () => {
   }, [serverUrl]);
 
   const whatsapp = socialMedia.find((item) => getPlatform(item) === "whatsapp");
+  const emailContacts = socialMedia.filter(
+    (item) => getPlatform(item) === "email",
+  );
 
   return (
     <section>
@@ -69,13 +72,24 @@ const Contact = () => {
         <div className="flex flex-col lg:flex-row justify-center gap-5">
           <div className="contact flex-3 py-5 flex flex-col gap-3 items-center lg:items-start">
             <h2>تواصل معنا</h2>
-            {socialMedia
-              .filter((item) => getPlatform(item) === "email")
-              .map((item) => (
-                <p key={item._id} dir="ltr">
-                  {item.value ?? item.link}
-                </p>
-              ))}
+            {emailContacts.length > 0 ? (
+              emailContacts.map((item) => {
+                const email = (item.value ?? item.link).replace(/^mailto:/i, "");
+                return (
+                  <p key={item._id} dir="ltr">
+                    <a href={`mailto:${email}`} className="underline">
+                      {email}
+                    </a>
+                  </p>
+                );
+              })
+            ) : (
+              <p dir="ltr">
+                <a href="mailto:contact@terrafert.com" className="underline">
+                  contact@terrafert.com
+                </a>
+              </p>
+            )}
             {socialMedia
               .filter((item) => getPlatform(item) === "address")
               .map((item) => (
@@ -85,11 +99,19 @@ const Contact = () => {
               ))}
             {socialMedia
               .filter((item) => getPlatform(item) === "phone")
-              .map((item) => (
+              .map((item) => {
+                const phone = item.value ?? item.link;
+                const phoneHref = phone.startsWith("tel:")
+                  ? phone
+                  : `tel:${phone.replace(/[^\d+]/g, "")}`;
+                return (
                 <p key={item._id} dir="ltr">
-                  {item.value ?? item.link}
+                  <a href={phoneHref} className="underline">
+                    {phone.replace(/^tel:/i, "")}
+                  </a>
                 </p>
-              ))}
+                );
+              })}
             {whatsapp && (
               <>
                 <p dir="ltr">

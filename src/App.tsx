@@ -25,6 +25,9 @@ import SocialMediaManagement from "./admin/Pages/SocialMediaManagement";
 import { WhatsAppSettingsProvider } from "./components/WhatsAppSettings";
 import Tests from "./pages/Tests";
 import TestDetails from "./pages/TestDetails";
+import About from "./pages/About";
+import Terms from "./pages/Terms";
+import Privacy from "./pages/Privacy";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +38,9 @@ const router = createBrowserRouter([
       { path: "/shop", element: <Shop /> },
       { path: "/how", element: <HowToOrder /> },
       { path: "/contact", element: <ContactUs /> },
+      { path: "/about", element: <About /> },
+      { path: "/terms", element: <Terms /> },
+      { path: "/privacy", element: <Privacy /> },
       { path: "/cart", element: <Cart /> },
       { path: "/product/:id", element: <Product /> },
       { path: "/tests", element: <Tests /> },

@@ -11,7 +11,7 @@ interface Product {
   category: string;
 }
 
-const Products = () => {
+const Products = ({ headingLevel = "h2" }: { headingLevel?: "h1" | "h2" }) => {
   const serverUrl = import.meta.env.REACT_APP_SERVER_URL;
   const [params, setParams] = useSearchParams({ cat: "all", page: "1" });
   const activeTag = params.get("cat") || "all";
@@ -24,6 +24,7 @@ const Products = () => {
   const searchTerm = search.trim().toLocaleLowerCase();
 
   const maxItems = 18;
+  const Heading = headingLevel;
 
   // FIXME: Change it With The Server Data & I will Send The Active Page to Get The new Products
 
@@ -67,7 +68,7 @@ const Products = () => {
   return (
     <section>
       <div className="container py-8">
-        <h2 className="text-soil py-3">منتجاتنا</h2>
+        <Heading className="text-soil py-3">منتجاتنا</Heading>
         <div className="flex flex-col lg:flex-row items-start lg:items-center gap-3 justify-between">
           <div className="products-counter text-muted">
             {searchTerm

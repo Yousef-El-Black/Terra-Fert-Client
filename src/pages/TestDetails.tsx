@@ -4,6 +4,7 @@ import ScienceOutlinedIcon from "@mui/icons-material/ScienceOutlined";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import Seo from "../components/Seo";
 
 type FieldTest = {
   _id: string;
@@ -123,6 +124,23 @@ const TestDetails = () => {
 
   return (
     <main className="min-h-screen bg-cream">
+      <Seo
+        title={`${test.title} | التجارب الحقلية | Terra Fert`}
+        description={test.text.slice(0, 300)}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: test.title,
+          articleSection: "التجارب الحقلية",
+          description: test.text.slice(0, 300),
+          image: test.images.map((image) =>
+            image.startsWith("http") ? image : `${serverUrl}${image}`,
+          ),
+          datePublished: test.createdAt,
+          mainEntityOfPage: `https://terrafert.com/tests/${id}`,
+          publisher: { "@id": "https://terrafert.com/#organization" },
+        }}
+      />
       <div className="container py-8 sm:py-12">
         <nav
           aria-label="مسار التنقل"

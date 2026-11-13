@@ -11,6 +11,7 @@ import { ProductCard } from "../components/Cards";
 import axios from "axios";
 import { addMsg } from "../redux/slices/msgSlice";
 import { useWhatsAppSettings } from "../components/useWhatsAppSettings";
+import Seo from "../components/Seo";
 
 type ProductData = {
   _id: string;
@@ -105,6 +106,24 @@ const Product = () => {
 
   return (
     <section>
+      <Seo
+        title={`${product.title} | Terra Fert`}
+        description={product.description || `${product.title} من تيرا فيرت.`}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Product",
+          name: product.title,
+          description: product.description,
+          category: product.category,
+          image: product.images.map((image) =>
+            image.startsWith("http") ? image : `${serverUrl}${image}`,
+          ),
+          brand: {
+            "@type": "Brand",
+            name: "Terra Fert",
+          },
+        }}
+      />
       <div className="container py-10">
         <div className="tree flex gap-2 text-soil pb-4">
           <Link className="underline" to="/">
@@ -170,9 +189,9 @@ const Product = () => {
                 <UnavailableBadge text="غير متوفر" />
               )}
             </div>
-            <h2 className="title display text-soil py-3 text-center lg:text-start">
+            <h1 className="title display text-soil py-3 text-center lg:text-start">
               {product.title}
-            </h2>
+            </h1>
             <p className="desc text-muted label text-center lg:text-start">
               وصف المنتج : {product.description}
             </p>

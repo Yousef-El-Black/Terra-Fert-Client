@@ -18,3 +18,8 @@ npm run build
 Set `REACT_APP_SERVER_URL` in `client/.env.local` to the API origin before
 running or building the client. Client environment values are bundled into
 browser code and must not contain secrets.
+
+The static public assets include the sitemap, robots directives, Markdown
+content, and MCP Server Card. Production Apache hosting must preserve
+`public/.htaccess` and enable `mod_rewrite`, `mod_mime`, and `mod_headers` for
+deep-link routing, 404 responses, Markdown negotiation, and Link headers.

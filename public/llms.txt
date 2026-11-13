@@ -1,0 +1,19 @@
+# Terra Fert
+
+> تيرا فيرت للتجارة والزراعة: كتالوج للمستلزمات الزراعية مع إرسال طلبات المنتجات عبر واتساب.
+
+## الصفحات
+
+- [الرئيسية](https://terrafert.com/)
+- [المنتجات](https://terrafert.com/shop)
+- [طريقة الطلب](https://terrafert.com/how)
+- [التجارب الحقلية](https://terrafert.com/tests)
+- [من نحن](https://terrafert.com/about)
+- [تواصل معنا](https://terrafert.com/contact)
+- [شروط الاستخدام](https://terrafert.com/terms)
+- [الخصوصية](https://terrafert.com/privacy)
+
+## معلومات
+
+- البريد الإلكتروني: [contact@terrafert.com](mailto:contact@terrafert.com)
+- تبدأ الطلبات من الموقع برسالة واتساب؛ يتم تأكيد تفاصيل الطلب في المحادثة.

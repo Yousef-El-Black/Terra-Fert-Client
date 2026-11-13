@@ -1,8 +1,26 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
+
+  RewriteCond %{REQUEST_URI} ^/$
+  RewriteCond %{HTTP_ACCEPT} text/markdown [NC]
+  RewriteRule ^$ /index.md [L]
+
   RewriteRule ^index\.html$ - [L]
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /index.html [L]
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  RewriteRule ^(?:shop|how|contact|about|terms|privacy|cart|tests|admin|admin/(?:login|welcome|products(?:/add|/edit/[0-9a-f-]+)?|tests(?:/add|/edit/[0-9a-f-]+)?|settings|social)|product/[0-9a-f-]+|tests/[0-9a-f-]+)/?$ /index.html [L,NC]
+  RewriteRule ^ - [R=404,L]
+</IfModule>
+
+ErrorDocument 404 /index.html
+
+<IfModule mod_mime.c>
+  AddType text/markdown .md
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header set Link "<https://terrafert.com/index.md>; rel=\"alternate\"; type=\"text/markdown\", <https://terrafert.com/llms.txt>; rel=\"alternate\"; type=\"text/plain\""
 </IfModule>

@@ -1,0 +1,47 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/v1/server-card.schema.json",
+  "mcpCard": "0.1",
+  "name": "com.terrafert.website",
+  "version": "1.0.0",
+  "title": "Terra Fert",
+  "description": "Read-only WebMCP tools for discovering Terra Fert public pages and ordering information.",
+  "websiteUrl": "https://terrafert.com/",
+  "serverInfo": {
+    "name": "com.terrafert.website",
+    "version": "1.0.0"
+  },
+  "transport": {
+    "type": "webmcp",
+    "endpoint": "https://terrafert.com/",
+    "description": "Tools are registered in a supporting browser through navigator.modelContext."
+  },
+  "remotes": [
+    {
+      "type": "webmcp",
+      "url": "https://terrafert.com/",
+      "name": "terrafert-webmcp",
+      "title": "Terra Fert WebMCP",
+      "description": "Read-only public site discovery and ordering tools."
+    }
+  ],
+  "capabilities": {
+    "tools": {
+      "listChanged": false,
+      "readOnly": true
+    },
+    "resources": false,
+    "prompts": false
+  },
+  "tools": [
+    {
+      "name": "terrafert_public_pages",
+      "title": "List public pages",
+      "description": "List public Terra Fert website pages and their URLs."
+    },
+    {
+      "name": "terrafert_ordering_information",
+      "title": "Get ordering information",
+      "description": "Explain how product ordering and contact work."
+    }
+  ]
+}
